@@ -1,0 +1,24 @@
+<ion-split-pane>
+  <ion-menu side="start" [content]="content">
+  <ion-header>
+    <ion-toolbar >
+    <ion-title>menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item-group>
+          <button (click)="openMovies()" menuClose >Upcoming Movies</button>
+          <button (click)="openSeries()" menuClose >Popular Series</button>
+      </ion-item-group>
+      <ion-item-group>
+        <button ion-item *ngFor="let genre of genres" (click)="openPage(genre)" menuClose >
+          {{ genre.name }}
+        </button>
+      </ion-item-group>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content main swipeBackEnabled="false"></ion-nav>
+</ion-split-pane>
